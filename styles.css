@@ -1,0 +1,187 @@
+
+*   {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: hsl(35, 40%, 91%);
+    font-family: Avenir, Arial, sans-serif;
+    font-size: larger;
+}
+
+.wrapper {
+
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+
+/*    get in the middle // for desktop so in media part?*/
+}
+/*Navigation and logo in the header*/
+.navigation-header  {
+    background-color: #42253B;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+#logo {
+    height: 50px;
+    padding: 20px;
+}
+
+#hamburger-menu {
+    width: 30px;
+    /*We hebben deze nodig zodat hij wisselt tussen zichtbaar (block) en onzichtbaar (none)*/
+    display: block;
+}
+
+#hamburger-menu:hover {
+    cursor: pointer;
+}
+
+.top-nav-contents   {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.top-nav-contents ul{
+    display: none;
+    list-style-type: none;
+}
+
+ul  {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-basis: 400px;
+    /*align-items: center;*/
+    padding: 40px;
+}
+
+li  {
+    padding: 10px;
+}
+
+a   {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: orangered;
+}
+
+@media screen and (min-width: 575px) {
+    #hamburger-menu {
+        /*icoon wordt niet weergegeven op mobiel*/
+        display: none;
+    }
+
+    .top-nav-contents {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-basis: 100%;
+
+    }
+
+    .top-nav-contents ul {
+        /*de menu items worden wel weergegeven op desktop*/
+        display: flex;
+        justify-content: space-between;
+
+
+    }
+}
+
+/*Main part of the page*/
+
+.container  {
+
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #95A3B3;
+    display: grid;
+    column-gap: 16px;
+    row-gap: 16px;
+    grid-template-columns: 500px;
+    justify-content: center;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "one"
+        "two"
+        "three"
+        "four";
+
+}
+
+.item   {
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+#item-one   {
+    grid-area: one;
+    background-color: black;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+#item-one > * {
+    flex: 1;
+    min-width: 0;
+    min-height: 100%;
+}
+
+#item-two   {
+    grid-area: two;
+}
+
+#item-three {
+    grid-area: three;
+}
+
+#item-four  {
+    grid-area: four;
+}
+
+p   {
+
+}
+
+@media screen and (min-width: 576px)    {
+
+    .container  {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "one two"
+            ". ."
+            "three four";
+
+
+    }
+
+}
+
+.footer {
+    background-color: #42253B;
+    margin-top: 16px;
+    height: 100px;
+}
